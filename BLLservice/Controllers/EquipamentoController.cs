@@ -24,7 +24,7 @@ namespace BLLservice.Controllers
             }
         }
 
-        [HttpPost(Name = "PostAluno")]
+        [HttpPost(Name = "PostEquipamento")]
         public ActionResult<TbEquipamento> AddEquipamento(TbEquipamento eqp)
         {
             try

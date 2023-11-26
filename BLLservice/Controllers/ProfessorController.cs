@@ -39,7 +39,7 @@ namespace BLLservice.Controllers
             }
         }
 
-        [HttpDelete(Name = "DeleteAluno")]
+        [HttpDelete(Name = "DeleteProfessor")]
         public ActionResult<TbProfessor> DeleteProfessor(int id)
         {
             try
