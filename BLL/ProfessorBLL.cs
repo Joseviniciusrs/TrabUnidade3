@@ -10,12 +10,13 @@ namespace BLL
 {
     public class ProfessorBLL
     {
-        public static void Add(TbProfessor prof)
+        public static TbProfessor Add(TbProfessor prof)
         {
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
                 DbContext.Add(prof);
                 DbContext.SaveChanges();
+                return prof;
             }
         }
 

@@ -12,12 +12,13 @@ namespace BLL
     public class EquipamentoBLL
     {
 
-        public static void Add(TbEquipamento equip)
+        public static TbEquipamento Add(TbEquipamento equip)
         {
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
                 DbContext.Add(equip);
                 DbContext.SaveChanges();
+                return equip;
             }
         }
 
