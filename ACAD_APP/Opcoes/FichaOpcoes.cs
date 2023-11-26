@@ -39,9 +39,8 @@ namespace ACAD_APP
 
         private void but_voltarFicha_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
             this.Close();
-            form.ShowDialog();
+            
         }
     }
 }

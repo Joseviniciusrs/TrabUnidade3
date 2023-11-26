@@ -19,9 +19,8 @@ namespace ACAD_APP
 
         private void but_voltarTreino_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
+           
             this.Close();
-            form.ShowDialog();
         }
 
         private void but_allTreino_Click(object sender, EventArgs e)
