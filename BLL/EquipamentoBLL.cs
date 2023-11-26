@@ -6,39 +6,40 @@ using System.Threading.Tasks;
 using DAL.DBContext;
 using MODEL;
 
+
 namespace BLL
 {
-    class AlunoBLL
+    class EquipamentoBLL
     {
 
-        public static void Add(TbAluno aln)
+        public static void Add(TbEquipamento equip)
         {
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
-                DbContext.Add(aln);
+                DbContext.Add(equip);
                 DbContext.SaveChanges();
             }
         }
 
-        public static TbAluno GetById(int id)
+        public static TbEquipamento GetById(int id)
         {
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
 
-                var aln = DbContext.TbAlunos.Single(a => a.Idaluno == id);
-                return aln;
+                var eq = DbContext.TbEquipamentos.Single(e => e.IdEquipamento == id);
+                return eq;
 
             }
 
         }
 
-        public static List<TbAluno> getAll()
+        public static List<TbEquipamento> getAll()
         {
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
 
-                var aln = DbContext.TbAlunos.ToList<TbProfessor>();
-                return aln;
+                var eq = DbContext.TbEquipamentos.ToList<TbEquipamento>();
+                return eq;
 
             }
 

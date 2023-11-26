@@ -8,37 +8,37 @@ using MODEL;
 
 namespace BLL
 {
-    class AlunoBLL
+    class RepeticaoBLL
     {
 
-        public static void Add(TbAluno aln)
+        public static void Add(TbRepeticao rep)
         {
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
-                DbContext.Add(aln);
+                DbContext.Add(rep);
                 DbContext.SaveChanges();
             }
         }
 
-        public static TbAluno GetById(int id)
+        public static TbRepeticao GetById(int id)
         {
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
 
-                var aln = DbContext.TbAlunos.Single(a => a.Idaluno == id);
-                return aln;
+                var rep = DbContext.TbRepeticaos.Single(r => r.IdRep == id);
+                return rep;
 
             }
 
         }
 
-        public static List<TbAluno> getAll()
+        public static List<TbRepeticao> getAll()
         {
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
 
-                var aln = DbContext.TbAlunos.ToList<TbProfessor>();
-                return aln;
+                var rep = DbContext.TbRepeticaos.ToList<TbRepeticao>();
+                return rep;
 
             }
 
