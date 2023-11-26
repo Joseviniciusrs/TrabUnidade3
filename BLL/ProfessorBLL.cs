@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    internal class ProfessorBLL
+    public class ProfessorBLL
     {
         public static void Add(TbProfessor prof)
         {
@@ -36,11 +36,22 @@ namespace BLL
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
 
-                var prof = DbContext.TbProfessors.ToList<TbProfessor>();
+                var prof = DbContext.TbProfessors.ToList();
                 return prof;
 
             }
             
+        }
+
+        public static void Remove(TbProfessor prof)
+        {
+            using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
+            {
+                var pro = DbContext.TbProfessors.Single(a => a.IdProf == prof.IdProf);
+                DbContext.Remove(pro);
+                DbContext.SaveChanges();
+
+            }
         }
     }
 }

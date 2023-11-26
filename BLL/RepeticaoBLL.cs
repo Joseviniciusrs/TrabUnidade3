@@ -8,7 +8,7 @@ using MODEL;
 
 namespace BLL
 {
-    class RepeticaoBLL
+    public class RepeticaoBLL
     {
 
         public static void Add(TbRepeticao rep)
@@ -25,7 +25,7 @@ namespace BLL
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
 
-                var rep = DbContext.TbRepeticaos.Single(r => r.IdRep == id);
+                var rep = DbContext.TbRepeticaos.Single(r => r.IdRepeticao == id);
                 return rep;
 
             }
@@ -37,12 +37,22 @@ namespace BLL
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
 
-                var rep = DbContext.TbRepeticaos.ToList<TbRepeticao>();
+                var rep = DbContext.TbRepeticaos.ToList();
                 return rep;
 
             }
 
         }
 
+        public static void Remove(TbRepeticao rep)
+        {
+            using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
+            {
+                var rpt = DbContext.TbRepeticaos.Single(a => a.IdRepeticao == rep.IdRepeticao);
+                DbContext.Remove(rpt);
+                DbContext.SaveChanges();
+
+            }
+        }
     }
 }

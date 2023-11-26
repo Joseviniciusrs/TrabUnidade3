@@ -9,7 +9,7 @@ using MODEL;
 
 namespace BLL
 {
-    class EquipamentoBLL
+    public class EquipamentoBLL
     {
 
         public static void Add(TbEquipamento equip)
@@ -38,11 +38,22 @@ namespace BLL
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
 
-                var eq = DbContext.TbEquipamentos.ToList<TbEquipamento>();
+                var eq = DbContext.TbEquipamentos.ToList();
                 return eq;
 
             }
 
+        }
+
+        public static void Remove(TbEquipamento eqp)
+        {
+            using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
+            {
+                var equip = DbContext.TbEquipamentos.Single(a => a.IdEquipamento == eqp.IdEquipamento);
+                DbContext.Remove(equip);
+                DbContext.SaveChanges();
+
+            }
         }
 
     }

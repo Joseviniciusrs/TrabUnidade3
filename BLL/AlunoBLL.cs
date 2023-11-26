@@ -8,15 +8,16 @@ using MODEL;
 
 namespace BLL
 {
-    class AlunoBLL
+    public class AlunoBLL
     {
 
-        public static void Add(TbAluno aln)
+        public static TbAluno Add(TbAluno aln)
         {
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
                 DbContext.Add(aln);
                 DbContext.SaveChanges();
+                return aln;
             }
         }
 
@@ -25,7 +26,7 @@ namespace BLL
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
 
-                var aln = DbContext.TbAlunos.Single(a => a.Idaluno == id);
+                var aln = DbContext.TbAlunos.Single(a => a.IdAluno == id);
                 return aln;
 
             }
@@ -36,12 +37,22 @@ namespace BLL
         {
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
-
-                var aln = DbContext.TbAlunos.ToList<TbProfessor>();
+                var aln = DbContext.TbAlunos.ToList();
                 return aln;
-
+                
             }
 
+        }
+
+        public static void Remove(TbAluno aln)
+        {
+            using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
+            {
+                var alun = DbContext.TbAlunos.Single(a => a.IdAluno == aln.IdAluno);
+                DbContext.Remove(alun);
+                DbContext.SaveChanges();
+               
+            }
         }
 
     }
