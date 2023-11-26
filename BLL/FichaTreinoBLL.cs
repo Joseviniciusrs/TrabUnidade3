@@ -11,12 +11,13 @@ namespace BLL
     public class FichaTreinoBLL
     {
 
-        public static void Add(TbFichatr fichatr)
+        public static TbFichatr Add(TbFichatr fichatr)
         {
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
                 DbContext.Add(fichatr);
                 DbContext.SaveChanges();
+                return fichatr;
             }
         }
 

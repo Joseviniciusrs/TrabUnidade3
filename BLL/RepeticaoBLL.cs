@@ -11,12 +11,13 @@ namespace BLL
     public class RepeticaoBLL
     {
 
-        public static void Add(TbRepeticao rep)
+        public static TbRepeticao Add(TbRepeticao rep)
         {
             using (var DbContext = new CUSERSIAGOADOCUMENTSGITHUBTRABUNIDADE3DALDATABASEDATABASE1MDFContext())
             {
                 DbContext.Add(rep);
                 DbContext.SaveChanges();
+                return rep;
             }
         }
 
