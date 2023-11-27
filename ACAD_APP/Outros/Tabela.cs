@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using ACAD_APP.model;
+using BLL;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -14,32 +15,32 @@ namespace ACAD_APP.Outros
 {
     public partial class Tabela : Form
     {
-        List<TbAluno>? list1;
-        List<TbProfessor>? list2;
-        List<TbEquipamento>? list3;
-        List<TbRepeticao>? list4;
-        List<TbFichatr>? list5;
-        public Tabela(List<TbAluno>? lista)
+        List<Aluno>? list1;
+        List<Professor>? list2;
+        List<Equipamento>? list3;
+        List<Repeticao>? list4;
+        List<Ficha>? list5;
+        public Tabela(List<Aluno>? lista)
         {
             InitializeComponent();
             this.list1 = lista;
         }
-        public Tabela(List<TbProfessor>? lista)
+        public Tabela(List<Professor>? lista)
         {
             InitializeComponent();
             this.list2 = lista;
         }
-        public Tabela(List<TbEquipamento>? lista)
+        public Tabela(List<Equipamento>? lista)
         {
             InitializeComponent();
             this.list3 = lista;
         }
-        public Tabela(List<TbRepeticao>? lista)
+        public Tabela(List<Repeticao>? lista)
         {
             InitializeComponent();
             this.list4 = lista;
         }
-        public Tabela(List<TbFichatr>? lista)
+        public Tabela(List<Ficha>? lista)
         {
             InitializeComponent();
             this.list5 = lista;
@@ -48,10 +49,21 @@ namespace ACAD_APP.Outros
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void dataGridView1_Enter(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void Tabela_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             if (list1 != null)
             {
@@ -61,9 +73,9 @@ namespace ACAD_APP.Outros
             {
                 dataGridView1.DataSource = list2;
             }
-            else if (list3 != null) 
-            { 
-                dataGridView1.DataSource = list3; 
+            else if (list3 != null)
+            {
+                dataGridView1.DataSource = list3;
             }
             else if (list4 != null)
             {
@@ -73,7 +85,6 @@ namespace ACAD_APP.Outros
             {
                 dataGridView1.DataSource = list5;
             }
-            
         }
     }
 }

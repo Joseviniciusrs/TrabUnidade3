@@ -10,14 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLLservice;
-using MODEL;
-using BLL;
+using ACAD_APP.model;
+using System.Net.Http.Headers;
 
 namespace ACAD_APP
 {
     public partial class EquipamentoOpcoes : Form
     {
-        
+        HttpClient httpClient = new HttpClient();
         public EquipamentoOpcoes()
         {
             InitializeComponent();
@@ -36,13 +36,14 @@ namespace ACAD_APP
 
         private async void but_allEqp_Click(object sender, EventArgs e)
         {
-            HttpClient httpClient = new HttpClient();
+            string url = "https://localhost:7263/api/Equipamento";
 
-            HttpResponseMessage resposta = await httpClient.GetAsync("https://localhost:7263/api/Equipamento/");
+
+            HttpResponseMessage resposta = await httpClient.GetAsync(url);
 
             var content = await resposta.Content.ReadAsStringAsync();
 
-            List<TbEquipamento> eqp = JsonConvert.DeserializeObject<List<TbEquipamento>>(content);
+            List<Equipamento> eqp = JsonConvert.DeserializeObject<List<Equipamento>>(content);
 
             Outros.Tabela tabela = new Outros.Tabela(eqp);
             tabela.ShowDialog();
@@ -50,18 +51,19 @@ namespace ACAD_APP
 
         private async void but_insereEqp_Click(object sender, EventArgs e)
         {
-            TbEquipamento eqp = new TbEquipamento();
-            eqp.NomeEqp = "Supino";
-            HttpClient httpClient = new HttpClient();
+            Equipamento eqp = new Equipamento();
+            eqp.nomeEqp = "Supino";
+
 
             string c = JsonConvert.SerializeObject(eqp);
             var conteudo = new StringContent(c, System.Text.Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("https://localhost:7263/api/Equipamento/", conteudo);
-            
+            HttpResponseMessage response = await httpClient.PostAsync("https://localhost:7263/api/Equipamento", conteudo);
+
             var retorno = await response.Content.ReadAsStringAsync();
 
             MessageBox.Show("Registro Adiconado com Sucesso\n" + retorno);
         }
+
     }
 }
  
