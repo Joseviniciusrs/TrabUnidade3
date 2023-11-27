@@ -14,7 +14,7 @@ namespace ACAD_APP
         private void but_Equip_Click(object sender, EventArgs e)
         {
             EquipamentoOpcoes form = new EquipamentoOpcoes();
-            form.ShowDialog();
+             form.ShowDialog();
             
             
         }

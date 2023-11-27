@@ -1,9 +1,12 @@
-﻿using System;
+﻿using MODEL;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +15,7 @@ namespace ACAD_APP
 {
     public partial class RepeticaoOpcoes : Form
     {
+        HttpClient httpClient = new HttpClient();
         public RepeticaoOpcoes()
         {
             InitializeComponent();
@@ -23,9 +27,19 @@ namespace ACAD_APP
             this.Close();
         }
 
-        private void but_allTreino_Click(object sender, EventArgs e)
+        private async void but_allTreino_Click(object sender, EventArgs e)
         {
+            string url = "http://localhost:5195/api/Repeticao";
 
+
+            HttpResponseMessage resposta = await httpClient.GetAsync(url);
+
+            var content = await resposta.Content.ReadAsStringAsync();
+
+            List<TbRepeticao>? clientes = JsonConvert.DeserializeObject<List<TbRepeticao>>(content);
+
+            Outros.Tabela tabela = new Outros.Tabela(clientes);
+            tabela.ShowDialog();
         }
 
         private void but_buscaTreino_Click(object sender, EventArgs e)

@@ -55,6 +55,7 @@
             but_allEqp.TabIndex = 13;
             but_allEqp.Text = "Ver equipamentos";
             but_allEqp.UseVisualStyleBackColor = true;
+            but_allEqp.Click += but_allEqp_Click;
             // 
             // but_buscaEqp
             // 
@@ -64,6 +65,7 @@
             but_buscaEqp.TabIndex = 12;
             but_buscaEqp.Text = "Buscar equipamento";
             but_buscaEqp.UseVisualStyleBackColor = true;
+            but_buscaEqp.Click += but_buscaEqp_Click;
             // 
             // but_deletaEqp
             // 
@@ -98,6 +100,7 @@
             but_insereEqp.TabIndex = 9;
             but_insereEqp.Text = "Inserir equipamento";
             but_insereEqp.UseVisualStyleBackColor = true;
+            but_insereEqp.Click += but_insereEqp_Click;
             // 
             // label1
             // 
