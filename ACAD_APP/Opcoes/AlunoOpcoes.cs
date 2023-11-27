@@ -38,7 +38,7 @@ namespace ACAD_APP
 
         private async void but_allAluno_Click(object sender, EventArgs e)
         {
-            string url = "http://localhost:5195/api/Aluno";
+            string url = "http://localhost:7263/api/Aluno";
 
 
             HttpResponseMessage resposta = await httpClient.GetAsync(url);
