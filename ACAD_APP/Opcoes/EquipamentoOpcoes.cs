@@ -17,7 +17,7 @@ namespace ACAD_APP
 {
     public partial class EquipamentoOpcoes : Form
     {
-        HttpClient httpClient = new HttpClient();
+        
         public EquipamentoOpcoes()
         {
             InitializeComponent();
@@ -36,14 +36,14 @@ namespace ACAD_APP
 
         private async void but_allEqp_Click(object sender, EventArgs e)
         {
-            string url = "https://localhost:7263/swagger/index.html/api/Equipamento";
-
+            string url = "https://localhost:7263/api/Equipamento/GetEquipamento";
+            HttpClient httpClient = new HttpClient();
 
             HttpResponseMessage resposta = await httpClient.GetAsync(url);
 
             var content = await resposta.Content.ReadAsStringAsync();
 
-            List<TbEquipamento>? eqp = JsonConvert.DeserializeObject<List<TbEquipamento>>(content);
+            List<TbEquipamento> eqp = JsonConvert.DeserializeObject<List<TbEquipamento>>(content);
 
             Outros.Tabela tabela = new Outros.Tabela(eqp);
             tabela.ShowDialog();
@@ -53,11 +53,11 @@ namespace ACAD_APP
         {
             TbEquipamento eqp = new TbEquipamento();
             eqp.NomeEqp = "Supino";
-            
+            HttpClient httpClient = new HttpClient();
 
             string c = JsonConvert.SerializeObject(eqp);
             var conteudo = new StringContent(c, System.Text.Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("https://localhost:7263/swagger/index.html/api/Equipamento", conteudo);
+            var response = await httpClient.PostAsync("https://localhost:7263/api/Equipamento", conteudo);
             
             var retorno = await response.Content.ReadAsStringAsync();
 
