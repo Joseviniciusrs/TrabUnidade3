@@ -1,4 +1,5 @@
-﻿using MODEL;
+﻿using ACAD_APP.model;
+using MODEL;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,13 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ACAD_APP.Outros;
 
 namespace ACAD_APP
 {
     public partial class RepeticaoOpcoes : Form
     {
-        HttpClient httpClient = new HttpClient();
+        
         public RepeticaoOpcoes()
         {
             InitializeComponent();
@@ -29,16 +31,16 @@ namespace ACAD_APP
 
         private async void but_allTreino_Click(object sender, EventArgs e)
         {
-            string url = "http://localhost:5195/api/Repeticao";
-
+            string url = "https://localhost:7263/api/Repeticao";
+            HttpClient httpClient = new HttpClient();
 
             HttpResponseMessage resposta = await httpClient.GetAsync(url);
 
             var content = await resposta.Content.ReadAsStringAsync();
 
-            List<TbRepeticao>? clientes = JsonConvert.DeserializeObject<List<TbRepeticao>>(content);
+            List<Repeticao> clientes = JsonConvert.DeserializeObject<List<Repeticao>>(content);
 
-            Outros.Tabela tabela = new Outros.Tabela(clientes);
+            Tabela tabela = new Tabela(clientes);
             tabela.ShowDialog();
         }
 

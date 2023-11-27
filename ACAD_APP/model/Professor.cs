@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ACAD_APP
+namespace ACAD_APP.model
 {
-    public class Aluno
+    
+    public class Professor
     {
-        public int idAluno { get; set; }
-        public string? nomeA { get; set; }
-        public string? cpf { get; set; }
+        public int idProf { get; set; }
+        public string? nomeP { get; set; }
+        public string? cnpj { get; set; }
         public string? ddd { get; set; }
         public string? numero { get; set; }
         public string? email { get; set; }

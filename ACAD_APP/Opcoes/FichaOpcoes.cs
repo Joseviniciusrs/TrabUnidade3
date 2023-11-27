@@ -10,12 +10,14 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ACAD_APP.Outros;
+using ACAD_APP.model;
 
 namespace ACAD_APP
 {
     public partial class FichaOpcoes : Form
     {
-        HttpClient httpClient = new HttpClient();
+        
         public FichaOpcoes()
         {
             InitializeComponent();
@@ -38,16 +40,16 @@ namespace ACAD_APP
 
         private async void but_allFicha_Click(object sender, EventArgs e)
         {
-            string url = "http://localhost:5195/api/Ficha";
-
+            string url = "https://localhost:7263/api/Ficha";
+            HttpClient httpClient = new HttpClient();
 
             HttpResponseMessage resposta = await httpClient.GetAsync(url);
 
             var content = await resposta.Content.ReadAsStringAsync();
 
-            List<TbFichatr>? clientes = JsonConvert.DeserializeObject<List<TbFichatr>>(content);
+            List<Ficha> clientes = JsonConvert.DeserializeObject<List<Ficha>>(content);
 
-            Outros.Tabela tabela = new Outros.Tabela(clientes);
+            Tabela tabela = new Tabela(clientes);
             tabela.ShowDialog();
         }
 

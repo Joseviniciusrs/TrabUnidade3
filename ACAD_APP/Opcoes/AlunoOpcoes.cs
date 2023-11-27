@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MODEL;
+using ACAD_APP.Outros;
+using ACAD_APP.model;
 
 namespace ACAD_APP
 {
@@ -38,16 +40,16 @@ namespace ACAD_APP
 
         private async void but_allAluno_Click(object sender, EventArgs e)
         {
-            string url = "https://localhost:7263/api/Aluno/GetAluno";
+            string url = "https://localhost:7263/api/Aluno";
             HttpClient httpClient = new HttpClient();
 
             HttpResponseMessage resposta = await httpClient.GetAsync(url);
 
             var content = await resposta.Content.ReadAsStringAsync();
 
-            List<Aluno>? clientes = JsonConvert.DeserializeObject<List<Aluno>>(content);
+            List<Aluno> clientes = JsonConvert.DeserializeObject<List<Aluno>>(content);
 
-            Outros.Tabela tabela = new Outros.Tabela(clientes);
+            Tabela tabela = new Tabela(clientes);
             tabela.ShowDialog();
         }
 

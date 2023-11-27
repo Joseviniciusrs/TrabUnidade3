@@ -10,12 +10,14 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ACAD_APP.Outros;
+using ACAD_APP.model;
 
 namespace ACAD_APP
 {
     public partial class ProfessorOpcoes : Form
     {
-        HttpClient httpClient = new HttpClient();
+        
         public ProfessorOpcoes()
         {
             InitializeComponent();
@@ -38,16 +40,16 @@ namespace ACAD_APP
 
         private async void but_allProf_Click(object sender, EventArgs e)
         {
-            string url = "http://localhost:5195/api/Professor";
-
+            string url = "https://localhost:7263/api/Professor";
+            HttpClient httpClient = new HttpClient();
 
             HttpResponseMessage resposta = await httpClient.GetAsync(url);
 
             var content = await resposta.Content.ReadAsStringAsync();
 
-            List<TbProfessor>? clientes = JsonConvert.DeserializeObject<List<TbProfessor>>(content);
+            List<Professor> clientes = JsonConvert.DeserializeObject<List<Professor>>(content);
 
-            Outros.Tabela tabela = new Outros.Tabela(clientes);
+            Tabela tabela = new Tabela(clientes);
             tabela.ShowDialog();
         }
 
