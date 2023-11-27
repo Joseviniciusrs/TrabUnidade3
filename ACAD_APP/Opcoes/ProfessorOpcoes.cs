@@ -42,7 +42,6 @@ namespace ACAD_APP
         private async void but_allProf_Click(object sender, EventArgs e)
         {
             string url = "https://localhost:7263/api/Professor";
-            
 
             HttpResponseMessage resposta = await httpClient.GetAsync(url);
 
