@@ -13,6 +13,7 @@ using BLLservice;
 using ACAD_APP.model;
 using System.Net.Http.Headers;
 using ACAD_APP.Outros;
+using ACAD_APP.Outros.Remove;
 
 namespace ACAD_APP
 {
@@ -56,6 +57,10 @@ namespace ACAD_APP
             eqp.ShowDialog();
         }
 
+        private void but_deletaEqp_Click(object sender, EventArgs e)
+        {
+            RemoveEquip form = new RemoveEquip();
+            form.ShowDialog();
+        }
     }
 }
- 

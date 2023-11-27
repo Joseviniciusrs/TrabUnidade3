@@ -78,6 +78,7 @@
             but_deletaEqp.TabIndex = 11;
             but_deletaEqp.Text = "Deletar equipamento";
             but_deletaEqp.UseVisualStyleBackColor = true;
+            but_deletaEqp.Click += but_deletaEqp_Click;
             // 
             // label2
             // 

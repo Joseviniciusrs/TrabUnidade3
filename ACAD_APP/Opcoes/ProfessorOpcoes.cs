@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ACAD_APP.Outros;
 using ACAD_APP.model;
+using ACAD_APP.Outros.Remove;
 
 namespace ACAD_APP
 {
@@ -31,7 +32,8 @@ namespace ACAD_APP
 
         private void but_deletaProf_Click(object sender, EventArgs e)
         {
-
+            RemoveProfessor form = new RemoveProfessor();
+            form.ShowDialog();
         }
 
         private void but_buscaProf_Click(object sender, EventArgs e)

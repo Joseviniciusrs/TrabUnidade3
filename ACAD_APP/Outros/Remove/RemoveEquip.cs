@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace ACAD_APP.Outros.Remove
 {
-    public partial class RemoveAluno : Form
+    public partial class RemoveEquip : Form
     {
         HttpClient httpClient = new HttpClient();
-        public RemoveAluno()
+        public RemoveEquip()
         {
             InitializeComponent();
         }
@@ -21,7 +21,7 @@ namespace ACAD_APP.Outros.Remove
         private async void button1_Click(object sender, EventArgs e)
         {
             string val = textBox1.Text;
-            var response = await httpClient.DeleteAsync($"https://localhost:7263/api/Aluno?Id={val}");
+            var response = await httpClient.DeleteAsync($"https://localhost:7263/api/Equipamento?Id={val}");
             var retorno = await response.Content.ReadAsStringAsync();
 
             MessageBox.Show("Registro deletado com sucesso!\n\n" + retorno);
