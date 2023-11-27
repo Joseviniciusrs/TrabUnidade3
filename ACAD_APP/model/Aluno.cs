@@ -14,7 +14,7 @@ namespace ACAD_APP.model
         public string? ddd { get; set; }
         public string? numero { get; set; }
         public string? email { get; set; }
-        public object[]? tbFichatrs { get; set; }
+        //public object[]? tbFichatrs { get; set; }
     }
 
 }

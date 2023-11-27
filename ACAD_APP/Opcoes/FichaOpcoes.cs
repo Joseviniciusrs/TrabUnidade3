@@ -17,15 +17,25 @@ namespace ACAD_APP
 {
     public partial class FichaOpcoes : Form
     {
-        
+        HttpClient httpClient = new HttpClient();
         public FichaOpcoes()
         {
             InitializeComponent();
         }
 
-        private void but_insereFicha_Click(object sender, EventArgs e)
+        private async void but_insereFicha_Click(object sender, EventArgs e)
         {
+            Ficha fic = new Ficha();
+            fic.idAluno = 1;
+            fic.idProf= 1;
 
+            string c = JsonConvert.SerializeObject(fic);
+            var conteudo = new StringContent(c, System.Text.Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await httpClient.PostAsync("https://localhost:7263/api/Ficha", conteudo);
+
+            var retorno = await response.Content.ReadAsStringAsync();
+
+            MessageBox.Show("Ficha Adiconado com Sucesso\n" + retorno);
         }
 
         private void but_deletaFicha_Click(object sender, EventArgs e)
@@ -41,7 +51,6 @@ namespace ACAD_APP
         private async void but_allFicha_Click(object sender, EventArgs e)
         {
             string url = "https://localhost:7263/api/Ficha";
-            HttpClient httpClient = new HttpClient();
 
             HttpResponseMessage resposta = await httpClient.GetAsync(url);
 
@@ -56,7 +65,7 @@ namespace ACAD_APP
         private void but_voltarFicha_Click(object sender, EventArgs e)
         {
             this.Close();
-            
+
         }
     }
 }

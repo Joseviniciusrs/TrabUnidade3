@@ -10,7 +10,7 @@ namespace ACAD_APP.model
     {
         public int idEquipamento { get; set; }
         public string? nomeEqp { get; set; }
-        public object[]? tbRepeticaos { get; set; }
+        //public object[]? tbRepeticaos { get; set; }
     }
 
     

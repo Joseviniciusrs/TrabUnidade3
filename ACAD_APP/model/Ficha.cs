@@ -11,7 +11,18 @@ namespace ACAD_APP.model
         public int idFichatr { get; set; }
         public int idAluno { get; set; }
         public int idProf { get; set; }
-        public object[]? tbRepeticaos { get; set; }
+        //public Idalunonavigation? idAlunoNavigation { get; set; }
+        //public Idprofnavigation? idProfNavigation { get; set; }
+        //public object[] tbRepeticaos { get; set; }
     }
-    
+
+    public class Idalunonavigation
+    {
+    }
+
+    public class Idprofnavigation
+    {
+    }
+
+
 }
