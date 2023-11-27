@@ -56,7 +56,7 @@ namespace ACAD_APP
 
             string c = JsonConvert.SerializeObject(eqp);
             var conteudo = new StringContent(c, System.Text.Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("https://localhost:7263/api/Equipamento", conteudo);
+            var response = await httpClient.PostAsync("https://localhost:7263/api/Equipamento/", conteudo);
             
             var retorno = await response.Content.ReadAsStringAsync();
 
@@ -64,3 +64,4 @@ namespace ACAD_APP
         }
     }
 }
+ 
