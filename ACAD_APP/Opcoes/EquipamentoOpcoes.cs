@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using BLLservice;
 using ACAD_APP.model;
 using System.Net.Http.Headers;
+using ACAD_APP.Outros;
 
 namespace ACAD_APP
 {
@@ -49,19 +50,10 @@ namespace ACAD_APP
             tabela.ShowDialog();
         }
 
-        private async void but_insereEqp_Click(object sender, EventArgs e)
+        private void but_insereEqp_Click(object sender, EventArgs e)
         {
-            Equipamento eqp = new Equipamento();
-            eqp.nomeEqp = "Supino";
-
-
-            string c = JsonConvert.SerializeObject(eqp);
-            var conteudo = new StringContent(c, System.Text.Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await httpClient.PostAsync("https://localhost:7263/api/Equipamento", conteudo);
-
-            var retorno = await response.Content.ReadAsStringAsync();
-
-            MessageBox.Show("Registro Adiconado com Sucesso\n" + retorno);
+            AddEquipamento eqp = new AddEquipamento();
+            eqp.ShowDialog();
         }
 
     }

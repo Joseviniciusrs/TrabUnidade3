@@ -14,41 +14,41 @@ namespace ACAD_APP
         private void but_Equip_Click(object sender, EventArgs e)
         {
             EquipamentoOpcoes form = new EquipamentoOpcoes();
-             form.ShowDialog();
-            
-            
+            form.ShowDialog();
+
+
         }
 
         private void but_Aluno_Click(object sender, EventArgs e)
         {
             AlunoOpcoes form = new AlunoOpcoes();
             form.ShowDialog();
-            
-            
+
+
         }
 
         private void but_Prof_Click(object sender, EventArgs e)
         {
             ProfessorOpcoes form = new ProfessorOpcoes();
             form.ShowDialog();
-            
-            
+
+
         }
 
         private void but_Treino_Click(object sender, EventArgs e)
         {
             RepeticaoOpcoes form = new RepeticaoOpcoes();
             form.ShowDialog();
-            
-            
+
+
         }
 
         private void but_Ficha_Click(object sender, EventArgs e)
         {
             FichaOpcoes form = new FichaOpcoes();
             form.ShowDialog();
-            
-            
+
+
         }
     }
 }

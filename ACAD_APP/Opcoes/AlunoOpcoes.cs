@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using MODEL;
 using ACAD_APP.Outros;
 using ACAD_APP.model;
+using ACAD_APP.Outros.Remove;
 
 namespace ACAD_APP
 {
@@ -23,29 +24,16 @@ namespace ACAD_APP
             InitializeComponent();
         }
 
-        private async void but_insereAluno_Click(object sender, EventArgs e)
+        private void but_insereAluno_Click(object sender, EventArgs e)
         {
-            Aluno item = new Aluno();
-            item.nomeA = "joao";
-            item.cpf = "4545454545";
-            item.ddd = "71";
-            item.email = "joao@email.com";
-            item.numero = "98765432";
-            
-
-
-            string c = JsonConvert.SerializeObject(item);
-            var conteudo = new StringContent(c, System.Text.Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await httpClient.PostAsync("https://localhost:7263/api/Aluno", conteudo);
-
-            var retorno = await response.Content.ReadAsStringAsync();
-
-            MessageBox.Show("Aluno Adiconado com Sucesso\n" + retorno);
+            AddAluno form = new AddAluno();
+            form.ShowDialog();
         }
 
         private void but_deletaAluno_Click(object sender, EventArgs e)
         {
-
+            RemoveAluno form = new RemoveAluno();
+            form.ShowDialog();      
         }
 
         private void but_buscaAluno_Click(object sender, EventArgs e)

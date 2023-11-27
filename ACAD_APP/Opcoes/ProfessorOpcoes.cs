@@ -23,23 +23,10 @@ namespace ACAD_APP
             InitializeComponent();
         }
 
-        private async void but_insereProf_Click(object sender, EventArgs e)
+        private void but_insereProf_Click(object sender, EventArgs e)
         {
-            Professor prof = new Professor();
-            prof.nomeP = "carlos";
-            prof.cnpj = "123456789";
-            prof.ddd = "71";
-            prof.email = "carlos@email.com";
-            prof.numero = "12345678";
-
-
-            string c = JsonConvert.SerializeObject(prof);
-            var conteudo = new StringContent(c, System.Text.Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await httpClient.PostAsync("https://localhost:7263/api/Professor", conteudo);
-
-            var retorno = await response.Content.ReadAsStringAsync();
-
-            MessageBox.Show("Professor Adiconado com Sucesso\n" + retorno);
+            AddProfessor form = new AddProfessor();
+            form.ShowDialog();
         }
 
         private void but_deletaProf_Click(object sender, EventArgs e)
