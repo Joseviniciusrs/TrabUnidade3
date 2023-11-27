@@ -36,10 +36,9 @@ namespace ACAD_APP
 
         private async void but_allEqp_Click(object sender, EventArgs e)
         {
-            string url = "https://localhost:7263/api/Equipamento/GetEquipamento";
             HttpClient httpClient = new HttpClient();
 
-            HttpResponseMessage resposta = await httpClient.GetAsync(url);
+            HttpResponseMessage resposta = await httpClient.GetAsync("https://localhost:7263/api/Equipamento/");
 
             var content = await resposta.Content.ReadAsStringAsync();
 
