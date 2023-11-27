@@ -14,12 +14,12 @@ namespace ACAD_APP.Outros
 {
     public partial class Tabela : Form
     {
-        List<TbAluno>? list1;
+        List<Aluno>? list1;
         List<TbProfessor>? list2;
         List<TbEquipamento>? list3;
         List<TbRepeticao>? list4;
         List<TbFichatr>? list5;
-        public Tabela(List<TbAluno>? lista)
+        public Tabela(List<Aluno>? lista)
         {
             InitializeComponent();
             this.list1 = lista;
@@ -48,11 +48,6 @@ namespace ACAD_APP.Outros
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
-
-        private void dataGridView1_Enter(object sender, EventArgs e)
-        {
             if (list1 != null)
             {
                 dataGridView1.DataSource = list1;
@@ -61,9 +56,9 @@ namespace ACAD_APP.Outros
             {
                 dataGridView1.DataSource = list2;
             }
-            else if (list3 != null) 
-            { 
-                dataGridView1.DataSource = list3; 
+            else if (list3 != null)
+            {
+                dataGridView1.DataSource = list3;
             }
             else if (list4 != null)
             {
@@ -73,7 +68,41 @@ namespace ACAD_APP.Outros
             {
                 dataGridView1.DataSource = list5;
             }
+        }
+
+        private void dataGridView1_Enter(object sender, EventArgs e)
+        {
             
+
+        }
+
+        private void Tabela_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (list1 != null)
+            {
+                dataGridView1.DataSource = list1;
+            }
+            else if (list2 != null)
+            {
+                dataGridView1.DataSource = list2;
+            }
+            else if (list3 != null)
+            {
+                dataGridView1.DataSource = list3;
+            }
+            else if (list4 != null)
+            {
+                dataGridView1.DataSource = list4;
+            }
+            else if (list5 != null)
+            {
+                dataGridView1.DataSource = list5;
+            }
         }
     }
 }

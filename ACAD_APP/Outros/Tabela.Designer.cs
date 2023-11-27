@@ -30,6 +30,7 @@
         {
             dataGridView1 = new DataGridView();
             label1 = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -56,16 +57,28 @@
             label1.TabIndex = 1;
             label1.Text = "TABELA";
             // 
+            // button1
+            // 
+            button1.Location = new Point(23, 29);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 2;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Tabela
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(384, 311);
+            Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Name = "Tabela";
             Text = "Tabela";
+            Load += Tabela_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -75,5 +88,6 @@
 
         private DataGridView dataGridView1;
         private Label label1;
+        private Button button1;
     }
 }

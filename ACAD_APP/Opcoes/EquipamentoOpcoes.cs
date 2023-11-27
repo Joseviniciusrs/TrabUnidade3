@@ -43,7 +43,7 @@ namespace ACAD_APP
 
             var content = await resposta.Content.ReadAsStringAsync();
 
-            List<TbEquipamento> eqp = JsonConvert.DeserializeObject<List<TbEquipamento>>(content);
+            List<TbEquipamento>? eqp = JsonConvert.DeserializeObject<List<TbEquipamento>>(content);
 
             Outros.Tabela tabela = new Outros.Tabela(eqp);
             tabela.ShowDialog();
